@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  media_id: 1
+  movie_id: 1
+  person_id: 1
+  like: false
+
+two:
+  media_id: 1
+  movie_id: 1
+  person_id: 1
+  like: false

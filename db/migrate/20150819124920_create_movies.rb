@@ -6,6 +6,7 @@ class CreateMovies < ActiveRecord::Migration
       t.string :keywords
       t.text :storyline
       t.text :techspecs
+      t.text :detail
 
       t.timestamps null: false
     end
