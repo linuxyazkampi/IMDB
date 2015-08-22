@@ -5,7 +5,6 @@ class CreateContents < ActiveRecord::Migration
       t.string :description
       t.text :content
       t.string :type
-
       t.timestamps null: false
     end
   end

@@ -11,12 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819133321) do
+ActiveRecord::Schema.define(version: 20150819183200) do
+
+  create_table "actor_movies", force: :cascade do |t|
+    t.integer  "cast_id"
+    t.integer  "movie_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cast_media", force: :cascade do |t|
+    t.integer  "cast_id"
+    t.integer  "media_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "casts", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "age"
+    t.text     "bio"
+    t.string   "photo"
+    t.text     "detail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.integer  "parent_id"
     t.string   "title"
     t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "category_movies", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -37,6 +69,13 @@ ActiveRecord::Schema.define(version: 20150819133321) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "company_movies", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.integer  "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "contents", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
@@ -44,6 +83,14 @@ ActiveRecord::Schema.define(version: 20150819133321) do
     t.string   "type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "movie_id"
+  end
+
+  create_table "director_movies", force: :cascade do |t|
+    t.integer  "cast_id"
+    t.integer  "movie_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "media", force: :cascade do |t|
@@ -59,6 +106,20 @@ ActiveRecord::Schema.define(version: 20150819133321) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "media_movies", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.integer  "media_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "movie_writers", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.integer  "cast_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
@@ -68,17 +129,6 @@ ActiveRecord::Schema.define(version: 20150819133321) do
     t.text     "detail"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "people", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.integer  "age"
-    t.text     "bio"
-    t.string   "photo"
-    t.text     "detail"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -116,7 +166,7 @@ ActiveRecord::Schema.define(version: 20150819133321) do
   create_table "votes", force: :cascade do |t|
     t.integer  "media_id"
     t.integer  "movie_id"
-    t.integer  "person_id"
+    t.integer  "user_id"
     t.boolean  "like"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

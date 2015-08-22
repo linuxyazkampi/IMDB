@@ -9,7 +9,6 @@ class CreateMedia < ActiveRecord::Migration
       t.string :url_two
       t.text :video
       t.string :type
-
       t.timestamps null: false
     end
   end
