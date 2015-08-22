@@ -1,0 +1,7 @@
+<h1>   Cast id with <%= cast.id %></h1>
+Cast first_name :  <%= cast.first_name %><br>
+Cast last_name : <%= cast.last_name %><br>
+Age : <%= cast.age %><br>
+<p>Biography : <%= cast.bio %></p>
+<p>Details : <%= cast.detail %></p>
+<%= link_to 'destroy', cast_path(cast), method: :delete %>

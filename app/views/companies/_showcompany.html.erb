@@ -1,0 +1,7 @@
+<h1>    Company id with <%= company.id %></h1>
+Company name : <%= company.name %>
+<p>Company details : <%= company.detail %></p>
+<% movies_array.try(:each) do |movie| %>
+    <%= "#{movie.id} .) #{movie.title}" %>
+<% end %>
+<%= link_to 'destroy', company_path(company), method: :delete %>

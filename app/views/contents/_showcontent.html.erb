@@ -1,0 +1,6 @@
+<h1>    Content id with <%= content.id %></h1>
+<h3><%= content.kind %></h3>
+Content title : <%= content.title %>
+<p> Content description : <%= content.description %> </p>
+<p> Content : <%= content.content %> </p>
+<%= link_to 'destroy', content_path(content), method: :delete %>

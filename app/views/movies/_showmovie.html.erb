@@ -1,0 +1,7 @@
+<h1>   Movie id with <%= movie.id %></h1>
+Movie name :  <%= movie.title %><br>
+<p>Movie description : <%= movie.description %></p>
+<p>Storyline : <%= movie.storyline %></p>
+<p>Techspecs : <%= movie.techspecs %></p>
+<p>Details : <%= movie.detail %></p>
+<%= link_to 'Destroy', movie_path(movie), method: :delete %>

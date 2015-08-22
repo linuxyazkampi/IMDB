@@ -1,0 +1,5 @@
+<h1>    Comment id with <%= comment.id %>  </h1>
+Comment's movie : <%= comment.movie.title %><br>
+Comments's user : <%= "#{comment.user.fist_name}  #{comment.user.last_name}" %>
+<p>Comment content : <%= comment.content %></p>
+<%= link_to 'destroy', comment_path(comment), method: :delete %>

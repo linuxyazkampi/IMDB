@@ -1,0 +1,54 @@
+<%= form_for(@movie) do |f| %>
+    <% if @movie.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this topic from being saved:</h2>
+
+          <ul>
+            <% @movie.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_field :description %>
+    </div>
+    <div class="field">
+      <%= f.label :techspecs %><br>
+      <%= f.text_field :description %>
+    </div>
+    <div class="field">
+      <%= f.label :storyline %><br>
+      <%= f.text_field :storyline %>
+    </div>
+    <div class="field">
+      <%= f.label :keywords %><br>
+      <%= f.text_field :keywords %>
+    </div>
+    <div class="field">
+      <%= f.label :detail %><br>
+      <%= f.text_field :detail %>
+    </div>
+    <h1> Categories </h1>
+    <%= collection_check_boxes :movie, :category_ids, @categories, :id, :title %>
+
+    <h1> Directors </h1>
+    <%= collection_check_boxes :movie, :director_ids, @casts, :id, :first_name %>
+
+    <h1> Actors </h1>
+    <%= collection_check_boxes :movie, :actor_ids, @casts, :id, :first_name %>
+
+    <h1> Writes</h1>
+    <%= collection_check_boxes :movie, :writer_ids, @casts, :id, :first_name %>
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

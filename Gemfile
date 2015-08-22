@@ -46,3 +46,7 @@ end
 gem 'devise'
 #rails admin
 gem 'rails_admin'
+#pry
+gem 'pry'
+gem 'pry-rails'
+gem 'ratyrate'

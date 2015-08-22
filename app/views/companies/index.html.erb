@@ -1,0 +1,12 @@
+<h1>    Companies Lists     </h1>
+<% @companies.each do |company| %>
+
+    <% movies = company.movies %>
+   <% if movies.kind_of?(Array) %>
+    <% movies_array = movies.map{ |movie| [" #{movie.id} .) #{movie.title} ",movie.id] } %>
+    <%else %>
+    <% movies_array = movies %>
+    <%end %>
+
+    <%= render 'showcompany', company: company, movies_array: movies_array %>
+<% end %>
